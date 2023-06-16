@@ -27,19 +27,29 @@ class _QrGeneratorPageState extends State<QrGeneratorPage> {
                 });
               },
               decoration: InputDecoration(
-                labelText: 'Enter text',
+                labelText: 'Ingrese el texto',
+                border: OutlineInputBorder(),
               ),
             ),
             SizedBox(height: 16.0),
             Expanded(
-              child: Center(
-                child: qrText.isNotEmpty
-                    ? QrImageView(
+              child: Container(
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.blue),
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                child: Center(
+                  child: qrText.isNotEmpty
+                      ? QrImageView(
   data: qrText,
   version: QrVersions.auto,
   size: 200.0,
 )
-                    : Text('Ingrese el Texto para su QR'),
+                      : Text(
+                          'Ingrese el texto para generar el QR',
+                          style: TextStyle(fontSize: 18.0),
+                        ),
+                ),
               ),
             ),
           ],

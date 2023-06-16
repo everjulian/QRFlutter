@@ -1,18 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Barcode Scanner',
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home: BarcodeScanPage(),
-    );
-  }
-}
-
 class BarcodeScanPage extends StatefulWidget {
   @override
   _BarcodeScanPageState createState() => _BarcodeScanPageState();
@@ -52,12 +40,16 @@ class _BarcodeScanPageState extends State<BarcodeScanPage> {
           children: [
             Text(
               scannedBarcode,
-              style: TextStyle(fontSize: 20),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 16),
             ElevatedButton(
               onPressed: _scanBarcode,
               child: Text('Start Scan'),
+              style: ElevatedButton.styleFrom(
+                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                textStyle: TextStyle(fontSize: 18),
+              ),
             ),
           ],
         ),
